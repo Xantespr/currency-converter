@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.baseCurBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +42,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.helpIcon = new System.Windows.Forms.PictureBox();
+            this.curLabel1 = new System.Windows.Forms.Label();
+            this.curLabel2 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.helpIcon)).BeginInit();
@@ -48,6 +51,7 @@
             // 
             // baseCurBox
             // 
+            this.baseCurBox.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.baseCurBox.CausesValidation = false;
             this.baseCurBox.DisplayMember = "(brak)";
             this.baseCurBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -118,10 +122,11 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(391, 248);
-            this.textBox2.Multiline = true;
+            this.textBox2.Enabled = false;
+            this.textBox2.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox2.Location = new System.Drawing.Point(381, 367);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(310, 51);
+            this.textBox2.Size = new System.Drawing.Size(310, 20);
             this.textBox2.TabIndex = 10;
             // 
             // panelMenu
@@ -168,17 +173,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(360, 88);
+            this.label5.Location = new System.Drawing.Point(377, 130);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(303, 48);
+            this.label5.Size = new System.Drawing.Size(291, 48);
             this.label5.TabIndex = 15;
-            this.label5.Text = "This  app converts the  currencies,\r\n        needs network conection.\r\n";
+            this.label5.Text = "This app converts the currencies,\r\n      needs network conection.\r\n";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(318, 264);
+            this.label6.Location = new System.Drawing.Point(309, 363);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 24);
             this.label6.TabIndex = 16;
@@ -186,11 +191,33 @@
             // 
             // helpIcon
             // 
-            this.helpIcon.Location = new System.Drawing.Point(626, 160);
+            this.helpIcon.Image = global::currency_converter.Properties.Resources.help;
+            this.helpIcon.Location = new System.Drawing.Point(488, 216);
             this.helpIcon.Name = "helpIcon";
-            this.helpIcon.Size = new System.Drawing.Size(100, 50);
+            this.helpIcon.Size = new System.Drawing.Size(50, 50);
             this.helpIcon.TabIndex = 17;
             this.helpIcon.TabStop = false;
+            this.helpIcon.Click += new System.EventHandler(this.helpIcon_Click);
+            // 
+            // curLabel1
+            // 
+            this.curLabel1.AutoSize = true;
+            this.curLabel1.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.curLabel1.Location = new System.Drawing.Point(339, 314);
+            this.curLabel1.Name = "curLabel1";
+            this.curLabel1.Size = new System.Drawing.Size(275, 24);
+            this.curLabel1.TabIndex = 18;
+            this.curLabel1.Text = "Currency conversion from PLN";
+            // 
+            // curLabel2
+            // 
+            this.curLabel2.AutoSize = true;
+            this.curLabel2.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.curLabel2.Location = new System.Drawing.Point(620, 314);
+            this.curLabel2.Name = "curLabel2";
+            this.curLabel2.Size = new System.Drawing.Size(71, 24);
+            this.curLabel2.TabIndex = 19;
+            this.curLabel2.Text = "to PLN.";
             // 
             // Form1
             // 
@@ -198,12 +225,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.curLabel2);
+            this.Controls.Add(this.curLabel1);
             this.Controls.Add(this.helpIcon);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.textBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Form1";
             this.Text = "currency converter";
             this.panelMenu.ResumeLayout(false);
@@ -229,6 +261,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown amountBox;
         private System.Windows.Forms.PictureBox helpIcon;
+        private System.Windows.Forms.Label curLabel1;
+        private System.Windows.Forms.Label curLabel2;
     }
 }
 

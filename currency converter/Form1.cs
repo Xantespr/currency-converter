@@ -86,22 +86,30 @@ namespace currency_converter
                 return;
             }
             changedCurrency();
+            curLabel1.Text = $"Currency conversion from {baseCurBox.SelectedItem}";
         }
 
         private void targetCurBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             changedCurrency();
+            curLabel2.Text = $"to {targetCurBox.SelectedItem}.";
         }
 
         void amountBox_TextChanged(object sender, EventArgs e)
         {
             changedCurrency();
         }
+
+        private void helpIcon_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Currencies rates from NBP (Narodowy Bank Polski) with effective date: {conversionRate.rates_date}.");
+        }
     }
 
     public class ConversionRate
     {
         public Dictionary<string, double> Rates { get; } = new Dictionary<string, double>();
+        public string rates_date;
 
         public ConversionRate()
         {
@@ -118,6 +126,8 @@ namespace currency_converter
                 double mid = rateElement.GetProperty("mid").GetDouble();
                 Rates[code] = mid;
             }
+            JsonElement date = jsonDocument.RootElement.EnumerateArray().First().GetProperty("effectiveDate");
+            rates_date = date.GetString();
         }
     }
 
