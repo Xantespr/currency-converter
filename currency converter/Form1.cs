@@ -17,8 +17,8 @@ namespace currency_converter
             InitializeComponent();
             amountBox.TextChanged += new EventHandler(amountBox_TextChanged);
             conversionRate = new ConversionRate();
+            dataGridView1.Width = dataGridView1.Columns.Cast<DataGridViewColumn>().Sum(x => x.Width) + (dataGridView1.RowHeadersVisible ? dataGridView1.RowHeadersWidth : 0) + 3;
             FetchDataAsync();
-            
         }
 
         private async void FetchDataAsync()
@@ -32,7 +32,7 @@ namespace currency_converter
                     HttpResponseMessage response = await client.GetAsync(apiUrl);
 
                     // Check if the request was successful (status code 200)
-                    if (response.IsSuccessStatusCode)
+                    if  (response.IsSuccessStatusCode)
                     {
                         string content = await response.Content.ReadAsStringAsync();
                         conversionRate.UpdateFromJson(content);
@@ -68,9 +68,10 @@ namespace currency_converter
             catch
             {
                 MessageBox.Show($"Your amount value is not decimal.");
+                amountBox.Text = "0,00";
                 return;
             }
-            textBox2.Text = (conversionRate.Rates[baseCurrency] * amount / conversionRate.Rates[targetCurrency]).ToString("0.0000");
+            textBox2.Text = (conversionRate.Rates[baseCurrency] * amount / conversionRate.Rates[targetCurrency]).ToString("0.00");
         }
 
         private void switchCurBtn_Click(object sender, EventArgs e)
@@ -104,6 +105,13 @@ namespace currency_converter
         {
             MessageBox.Show($"Currencies rates from NBP (Narodowy Bank Polski) with effective date: {conversionRate.rates_date}.");
         }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            // row = { baseCurency - baseCurency amount - targetCurency - targetCurencyAmount }
+            string[] row = new string[] { (baseCurBox.SelectedItem).ToString(), amountBox.Text, (targetCurBox.SelectedItem).ToString(), textBox2.Text };
+            dataGridView1.Rows.Add(row);
+        }
     }
 
     public class ConversionRate
@@ -115,6 +123,7 @@ namespace currency_converter
         {
             Rates["PLN"] = 1.0;
         }
+
         public void UpdateFromJson(string jsonData)
         {
             JsonDocument jsonDocument = JsonDocument.Parse(jsonData);
@@ -130,5 +139,4 @@ namespace currency_converter
             rates_date = date.GetString();
         }
     }
-
 }

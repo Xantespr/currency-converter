@@ -44,9 +44,16 @@
             this.helpIcon = new System.Windows.Forms.PictureBox();
             this.curLabel1 = new System.Windows.Forms.Label();
             this.curLabel2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.helpIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // baseCurBox
@@ -55,10 +62,10 @@
             this.baseCurBox.CausesValidation = false;
             this.baseCurBox.DisplayMember = "(brak)";
             this.baseCurBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.baseCurBox.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold);
+            this.baseCurBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.baseCurBox.FormattingEnabled = true;
             this.baseCurBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.baseCurBox.Location = new System.Drawing.Point(18, 88);
+            this.baseCurBox.Location = new System.Drawing.Point(18, 81);
             this.baseCurBox.Name = "baseCurBox";
             this.baseCurBox.Size = new System.Drawing.Size(200, 39);
             this.baseCurBox.Sorted = true;
@@ -68,30 +75,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(36, 276);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 62);
+            this.label1.Size = new System.Drawing.Size(195, 62);
             this.label1.TabIndex = 5;
             this.label1.Text = "CONVERTED\r\n  AMOUNT";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(76, 54);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(76, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 31);
+            this.label2.Size = new System.Drawing.Size(90, 31);
             this.label2.TabIndex = 6;
             this.label2.Text = "BASE";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(63, 179);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 31);
+            this.label3.Size = new System.Drawing.Size(131, 31);
             this.label3.TabIndex = 7;
             this.label3.Text = "TARGET";
             // 
@@ -99,7 +106,7 @@
             // 
             this.targetCurBox.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.targetCurBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.targetCurBox.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold);
+            this.targetCurBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.targetCurBox.FormattingEnabled = true;
             this.targetCurBox.Location = new System.Drawing.Point(18, 216);
             this.targetCurBox.Name = "targetCurBox";
@@ -111,10 +118,10 @@
             // switchCurBtn
             // 
             this.switchCurBtn.BackColor = System.Drawing.Color.SeaShell;
-            this.switchCurBtn.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold);
-            this.switchCurBtn.Location = new System.Drawing.Point(94, 133);
+            this.switchCurBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
+            this.switchCurBtn.Location = new System.Drawing.Point(94, 126);
             this.switchCurBtn.Name = "switchCurBtn";
-            this.switchCurBtn.Size = new System.Drawing.Size(45, 45);
+            this.switchCurBtn.Size = new System.Drawing.Size(52, 52);
             this.switchCurBtn.TabIndex = 9;
             this.switchCurBtn.Text = "↑↓";
             this.switchCurBtn.UseVisualStyleBackColor = false;
@@ -124,9 +131,9 @@
             // 
             this.textBox2.Enabled = false;
             this.textBox2.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBox2.Location = new System.Drawing.Point(381, 367);
+            this.textBox2.Location = new System.Drawing.Point(397, 219);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(310, 20);
+            this.textBox2.Size = new System.Drawing.Size(224, 20);
             this.textBox2.TabIndex = 10;
             // 
             // panelMenu
@@ -148,7 +155,7 @@
             // amountBox
             // 
             this.amountBox.DecimalPlaces = 2;
-            this.amountBox.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold);
+            this.amountBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.amountBox.Location = new System.Drawing.Point(18, 351);
             this.amountBox.Maximum = new decimal(new int[] {
             1000000000,
@@ -156,43 +163,43 @@
             0,
             0});
             this.amountBox.Name = "amountBox";
-            this.amountBox.Size = new System.Drawing.Size(200, 37);
+            this.amountBox.Size = new System.Drawing.Size(200, 38);
             this.amountBox.TabIndex = 17;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tw Cen MT", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(303, 31);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(259, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(423, 40);
+            this.label4.Size = new System.Drawing.Size(513, 39);
             this.label4.TabIndex = 14;
             this.label4.Text = "CURENCY CONVERTER APP";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(377, 130);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(261, 81);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(291, 48);
+            this.label5.Size = new System.Drawing.Size(324, 50);
             this.label5.TabIndex = 15;
-            this.label5.Text = "This app converts the currencies,\r\n      needs network conection.\r\n";
+            this.label5.Text = "This app converts currencies,\r\nrequires a network conection.\r\n";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(309, 363);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(309, 215);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 24);
+            this.label6.Size = new System.Drawing.Size(86, 25);
             this.label6.TabIndex = 16;
             this.label6.Text = "Result:";
             // 
             // helpIcon
             // 
             this.helpIcon.Image = global::currency_converter.Properties.Resources.help;
-            this.helpIcon.Location = new System.Drawing.Point(488, 216);
+            this.helpIcon.Location = new System.Drawing.Point(641, 81);
             this.helpIcon.Name = "helpIcon";
             this.helpIcon.Size = new System.Drawing.Size(50, 50);
             this.helpIcon.TabIndex = 17;
@@ -202,22 +209,76 @@
             // curLabel1
             // 
             this.curLabel1.AutoSize = true;
-            this.curLabel1.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.curLabel1.Location = new System.Drawing.Point(339, 314);
+            this.curLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.curLabel1.Location = new System.Drawing.Point(288, 166);
             this.curLabel1.Name = "curLabel1";
-            this.curLabel1.Size = new System.Drawing.Size(275, 24);
+            this.curLabel1.Size = new System.Drawing.Size(333, 25);
             this.curLabel1.TabIndex = 18;
             this.curLabel1.Text = "Currency conversion from PLN";
             // 
             // curLabel2
             // 
             this.curLabel2.AutoSize = true;
-            this.curLabel2.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.curLabel2.Location = new System.Drawing.Point(620, 314);
+            this.curLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.curLabel2.Location = new System.Drawing.Point(620, 166);
             this.curLabel2.Name = "curLabel2";
-            this.curLabel2.Size = new System.Drawing.Size(71, 24);
+            this.curLabel2.Size = new System.Drawing.Size(90, 25);
             this.curLabel2.TabIndex = 19;
             this.curLabel2.Text = "to PLN.";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dataGridView1.Location = new System.Drawing.Point(266, 276);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(506, 185);
+            this.dataGridView1.TabIndex = 20;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Location = new System.Drawing.Point(635, 219);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(75, 20);
+            this.saveBtn.TabIndex = 21;
+            this.saveBtn.Text = "add to table";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 160F;
+            this.Column1.HeaderText = "base";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 180F;
+            this.Column2.HeaderText = "base amount";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 180F;
+            this.Column3.HeaderText = "target";
+            this.Column3.MinimumWidth = 30;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 180F;
+            this.Column4.HeaderText = "target amount";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 120;
             // 
             // Form1
             // 
@@ -225,6 +286,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.curLabel2);
             this.Controls.Add(this.curLabel1);
             this.Controls.Add(this.helpIcon);
@@ -242,6 +305,7 @@
             this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.helpIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,6 +327,12 @@
         private System.Windows.Forms.PictureBox helpIcon;
         private System.Windows.Forms.Label curLabel1;
         private System.Windows.Forms.Label curLabel2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
 
